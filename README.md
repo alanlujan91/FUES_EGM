@@ -1,13 +1,16 @@
 # FUES_EGM
+
 The Endogenous grid method (EGM) using fast upper-envelope scan (FUES).
 
-Initial beta replication material for `Fast upper-envelope scan for discrete-continuous dynamic programming' by Dobrescu and Shanker (2023). 
+Initial beta replication material for `Fast upper-envelope scan for discrete-continuous dynamic programming' by Dobrescu
+and Shanker (2023).
 
-See `slides....pdf` for overview of upper envelope scan. 
+See `slides....pdf` for overview of upper envelope scan.
 
 ## Example use of FUES
 
-Suppose we have the following arrays: an unrefined endogenous grid `x_hat`, the value correspondence on the unrefined grid `v_hat` 
+Suppose we have the following arrays: an unrefined endogenous grid `x_hat`, the value correspondence on the unrefined
+grid `v_hat`
 and two policy functions, `c_hat` and `a_prime_hat`.
 
 ```
@@ -17,12 +20,12 @@ x_clean, vf_clean, c_clean, a_prime_clean, dela \
         = FUES(x_hat, v_hat, c_hat, a_prime_hat, M_bar = 2, LB = 10)
 ```
 
-The outputs are the refined grids, `M_bar` is the jump detection threshold and `LB` is the number of steps to take in the forward and backward scans. 
+The outputs are the refined grids, `M_bar` is the jump detection threshold and `LB` is the number of steps to take in
+the forward and backward scans.
 
 ## Application 1
 
-### Plots 
-
+### Plots
 
 Consumption policy function generated using Ishkakov et al (2017) params and no smoothing:
 
@@ -48,12 +51,13 @@ The following code block in `retirement_plot.py` compares DC-EGM with FUES acros
 
 https://github.com/akshayshanker/FUES_EGM/blob/fa725a6285fee9def7e8ad07606603a658cdccf6/retirement_plot.py#L381-L470
 
-To perform the comparison, we first solve the full model using FUES, which gives the final solution computed using FUES 
+To perform the comparison, we first solve the full model using FUES, which gives the final solution computed using FUES
 and also the unrefined endogenous grids for each age. For a given age, we then compute the upper envelope using DC-EGM
-and FUES. The upper envelopes are compared on the optimal endogenous grid points as determined by DC-EGM. 
+and FUES. The upper envelopes are compared on the optimal endogenous grid points as determined by DC-EGM.
 
-(Compared on optimal points to avoid picking up errors arising from different interpolation steps used 
-by DC-EGM and FUES. DC-EGM interpolates line  segments on the unrefined grid while FUES first calculates the optimal points then 
+(Compared on optimal points to avoid picking up errors arising from different interpolation steps used
+by DC-EGM and FUES. DC-EGM interpolates line segments on the unrefined grid while FUES first calculates the optimal
+points then
 interpolates over the unrefined grid.)
 
 ```

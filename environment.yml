@@ -1,0 +1,11 @@
+name: fues
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - econ-ark=0.13
+  - pyyaml
+  - jupyterlab
+  - scikit-learn
+  - seaborn
